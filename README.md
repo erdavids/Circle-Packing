@@ -5,9 +5,9 @@ My attempt at making brute force circle packing.Each circle avoids collision by 
 If you want to run this project yourself, make sure to download [Processing](processing.org) for the .pyde file. Feel free to reach out to thebuffed@gmail.com if you have any questions.
 
 Other links:
-- [More Art and Tutorials](https://github.com/erdavids/Generative-Art)
-- [My Website](https://www.erdavids.com)
+- [More Generative Art](https://github.com/erdavids/Generative-Art)
 - [YouTube Channel](https://www.youtube.com/channel/UCUrmX3SvpPerq-KAfGBrgGQ)
+- [Twitter](https://twitter.com/TheBuffED)
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A6YGXL)
 
