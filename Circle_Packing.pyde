@@ -1,4 +1,4 @@
-w, h = 1280, 720
+w, h = 2000, 2000
 
 circles = []
 gridless = []
@@ -9,16 +9,17 @@ grid_height = 30
 cell_width = float(w)/grid_width
 cell_height = float(h)/grid_height
 
-gifFrame = 1
-
 color_palette = [(229, 115, 118), (235, 167, 114), (114, 178, 241), (211, 173, 223), (170, 198, 166)]
 
+# Find and set a random color from predefined palette
 def set_palette_color():
     c = color_palette[int(random(len(color_palette)))]
     fill(c[0], c[1], c[2])
 
+# Convert pixel position to grid element
 def get_grid_position(x, y):
     return x/cell_width + y/cell_height * grid_width 
+
 
 class Circ:
     def __init__(self, size):
@@ -26,6 +27,7 @@ class Circ:
         self.size = size
         self.valid = True
         
+    # Use this method if the circle is larger than the grid cell size
     def add_gridless(self):
         for i in range(20):
             self.position = (random(w), random(h))
@@ -44,11 +46,13 @@ class Circ:
                 self.display()
                 break
             
+    # Circle isn't placed randomly and gets evaluated like a gridless object
     def place_manually(self, position):
         self.position = position
         gridless.append(self)
         self.display()
         
+    # Compare each circle against neighbors in cell and neighboring cells
     def find_valid_position(self):
         for i in range(20):
             self.position = (random(w), random(h))
@@ -134,37 +138,23 @@ def setup():
     
     for i in range(grid_width * grid_height):
         circles.append([])
-        
-    noFill()
-    # c = Circ(500)
-    # c.place_manually((500, 500))
 
-    # for j in range(20):
-    #     c = Circ(75)
-    #     c.add_gridless()
+    for j in range(20):
+        c = Circ(75)
+        c.add_gridless()
         
-    for j in range(10):
+    for j in range(50):
         c = Circ(50)
         c.add_gridless()
-    
-    save('Examples/Gif/' + str(gifFrame) + '.png')
-    gifFrame += 1
-    
-    for j in range(10):
-        c = Circ(50)
-        c.add_gridless()
-    
-    save('Examples/Gif/' + str(gifFrame) + '.png')
-    gifFrame += 1
         
     for x in range(2000):
         c = Circ(20)
         c.find_valid_position()
         
-    for x in range(5000):
+    for x in range(10000):
         c = Circ(3)
         c.find_valid_position()
         
-    save('Examples/Gif/test.png')
+    save('Examples/' + str(int(random(10000))) + '.png')
         
     
